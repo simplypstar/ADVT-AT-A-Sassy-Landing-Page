@@ -1,4 +1,10 @@
 @import "btnConfig";
+// @import "utilities";
+// @import "config";
+
+@mixin display($display: flex) {
+  margin-top: 45px;
+}
 
 * {
   box-sizing: border-box;
@@ -7,28 +13,60 @@
 }
 
 body {
-  background-color: $light-color;
+  background-color:  $light-color;
   font-family: $font-stack;
   line-height: 1;
 }
 
-img {
-  border-radius: 50%;
-}
-
 a {
   text-decoration: none;
+  font-size: 12px;
 }
 
 .hero {
-  // This is where the bulk of the SCSS styling needs to be done
+  display: inline-block; 
+  color: white;
+  @include set-bg($color);
+  //background-color: $dark-color;
+  width: 100%;
 
-  // Take a look at the other files we've built already. How can they be useful here?
+  .content {
+    @include display;
+    font-size: 18px;
+    width: 45%;
+  }
 
-  // Also, take time to review the features of SCSS we've already covered:
-  // 1. $variables
-  // 2. nesting (dont forget about the ampersand (&) parent selector!)
-  // 3. At-Rules
+  .content1 img {
+    border-radius: 60%;
+    margin-left: 550px;
+    margin-top: -285px;
+    min-width: 15%;
+    max-width: 50%;
+  }    
+  
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    ul {
+      display: flex;
+      list-style-type: none;
+    }
+
+    li {
+      padding: 20px;
+    }
+  
+    a {
+      color: set-text-color($primary-color);
+      color: text-color-picker($primary-color);
+    }
+  
+    a:hover {
+      color: $secondary-color;
+    }
+  }
 }
 
 // This code is related to some of the aspects of SCSS we have yet to cover.
